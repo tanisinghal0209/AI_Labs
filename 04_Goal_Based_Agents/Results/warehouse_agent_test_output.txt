@@ -1,0 +1,11 @@
+test_handout_map_dimensions_and_markers (__main__.WarehouseAgentTests.test_handout_map_dimensions_and_markers) ... ok
+test_missing_or_duplicate_markers_are_rejected (__main__.WarehouseAgentTests.test_missing_or_duplicate_markers_are_rejected) ... ok
+test_ragged_grid_is_rejected (__main__.WarehouseAgentTests.test_ragged_grid_is_rejected) ... ok
+test_start_equal_to_goal_returns_single_position_path (__main__.WarehouseAgentTests.test_start_equal_to_goal_returns_single_position_path) ... ok
+test_supplied_map_has_collision_free_shortest_path (__main__.WarehouseAgentTests.test_supplied_map_has_collision_free_shortest_path) ... ok
+test_unreachable_goal_returns_none (__main__.WarehouseAgentTests.test_unreachable_goal_returns_none) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+OK

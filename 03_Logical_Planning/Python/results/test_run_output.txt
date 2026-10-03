@@ -1,0 +1,127 @@
+
+
+============================================================
+TEST A: SOLVABLE PROBLEM
+============================================================
+
+Initial State:
+['At(Package,A)', 'At(Robot,A)']
+
+Goal:
+['At(Package,C)']
+
+Plan found:
+1. PickUp(Package,A)
+   -> ['At(Robot,A)', 'Holding(Package)']
+2. Move(A,B)
+   -> ['At(Robot,B)', 'Holding(Package)']
+3. Move(B,C)
+   -> ['At(Robot,C)', 'Holding(Package)']
+4. Drop(Package,C)
+   -> ['At(Package,C)', 'At(Robot,C)']
+
+Verifying every action:
+
+Step 1: PickUp(Package,A)
+Preconditions satisfied.
+Resulting state: ['At(Robot,A)', 'Holding(Package)']
+
+Step 2: Move(A,B)
+Preconditions satisfied.
+Resulting state: ['At(Robot,B)', 'Holding(Package)']
+
+Step 3: Move(B,C)
+Preconditions satisfied.
+Resulting state: ['At(Robot,C)', 'Holding(Package)']
+
+Step 4: Drop(Package,C)
+Preconditions satisfied.
+Resulting state: ['At(Package,C)', 'At(Robot,C)']
+
+Goal is satisfied.
+
+TEST A RESULT: PASS
+The plan is valid and achieves At(Package,C).
+
+
+============================================================
+TEST B: IMPOSSIBLE PROBLEM
+============================================================
+
+Initial State:
+['At(Package,A)', 'At(Robot,A)']
+
+Goal:
+['At(Package,C)']
+
+PickUp action has been removed.
+
+Planner output:
+No plan found.
+
+TEST B RESULT: PASS
+The planner correctly detected that the problem is impossible.
+
+
+============================================================
+TEST C: IRRELEVANT ACTION
+============================================================
+
+Initial State:
+['At(Package,A)', 'At(Robot,A)']
+
+Goal:
+['At(Package,C)']
+
+Irrelevant actions added:
+MoveRobotOnly(A,B)
+MoveRobotOnly(B,C)
+
+--- Checking robot-only path ---
+MoveRobotOnly(A,B)
+-> ['At(Package,A)', 'At(Robot,B)']
+MoveRobotOnly(B,C)
+-> ['At(Package,A)', 'At(Robot,C)']
+
+After robot-only actions:
+['At(Package,A)', 'At(Robot,C)']
+Robot reached C.
+Package did NOT reach C.
+
+Correct:
+At(Robot,C) != At(Package,C)
+
+--- Running BFS planner ---
+
+Planner found:
+1. PickUp(Package,A)
+   -> ['At(Robot,A)', 'Holding(Package)']
+2. Move(A,B)
+   -> ['At(Robot,B)', 'Holding(Package)']
+3. Move(B,C)
+   -> ['At(Robot,C)', 'Holding(Package)']
+4. Drop(Package,C)
+   -> ['At(Package,C)', 'At(Robot,C)']
+
+Verifying every action:
+
+Step 1: PickUp(Package,A)
+Preconditions satisfied.
+Resulting state: ['At(Robot,A)', 'Holding(Package)']
+
+Step 2: Move(A,B)
+Preconditions satisfied.
+Resulting state: ['At(Robot,B)', 'Holding(Package)']
+
+Step 3: Move(B,C)
+Preconditions satisfied.
+Resulting state: ['At(Robot,C)', 'Holding(Package)']
+
+Step 4: Drop(Package,C)
+Preconditions satisfied.
+Resulting state: ['At(Package,C)', 'At(Robot,C)']
+
+Goal is satisfied.
+
+TEST C RESULT: PASS
+The planner did not confuse the robot reaching C with the package reaching C.

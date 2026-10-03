@@ -1,0 +1,46 @@
+PyTorch version: 2.11.0
+Device: CPU; seed: 2
+Input order: (0,0), (0,1), (1,0), (1,1)
+Binary labels: [0, 1, 1, 0]
+
+Binary XOR baseline (2-2-1, sigmoid hidden, BCEWithLogitsLoss)
+Initial loss: 0.69845378
+Final loss:   0.00009032
+Probabilities: [8.6e-05, 0.999907, 0.999906, 8.8e-05]
+Predicted labels: [0, 1, 1, 0]
+Early first-layer weight gradient:
+ tensor([[0.0005, 0.0005],
+        [0.0037, 0.0039]])
+Early first-layer gradient L2 norm: 0.00545327
+Basic learning checks: PASS
+
+Zero-initialization symmetry experiment (all parameters start at zero)
+Initial hidden weight rows:
+ tensor([[0., 0.],
+        [0., 0.]])
+Maximum difference between hidden weight rows by step: {0: 0.0, 1: 0.0, 10: 0.0, 100: 0.0}
+Loss after 100 steps: 0.69314718
+Hidden-unit symmetry check: PASS
+
+Activation experiment (same seed, data, architecture, optimizer, and steps)
+sigmoid final_loss=0.00009032 correct_4_of_4=True early_grad_norm=0.00545327 probabilities=[8.6e-05, 0.999907, 0.999906, 8.8e-05]
+tanh    final_loss=0.00002981 correct_4_of_4=True early_grad_norm=0.00507735 probabilities=[2.5e-05, 0.99997, 0.99996, 2.4e-05]
+relu    final_loss=0.00002213 correct_4_of_4=True early_grad_norm=0.00486777 probabilities=[9e-06, 0.999963, 0.999963, 7e-06]
+
+Three-class extension (2-2-3 logits, CrossEntropyLoss)
+Final output weight shape: (3, 2)
+Logit shape: (4, 3)
+Final loss: 0.00000504
+Probabilities for (00, 01, 10, 11):
+  (0, 0) -> [0.999995, 5e-06, 0.0]
+  (0, 1) -> [2e-06, 0.999996, 2e-06]
+  (1, 0) -> [2e-06, 0.999996, 2e-06]
+  (1, 1) -> [0.0, 6e-06, 0.999994]
+Probability row sums: [1.0, 0.99999994, 0.99999988, 1.0]
+Predicted classes: [0, 1, 1, 2]
+For the first example, softmax p: [0.9999945163726807, 5.473811143019702e-06, 5.642383626991432e-08]
+One-hot y: [1.0, 0.0, 0.0]
+Observed mean-loss logit gradient: [-1.3709068298339844e-06, 1.3684523310075747e-06, 1.41059555147649e-08]
+Expected (p-y)/4: [-1.3709068298339844e-06, 1.3684527857549256e-06, 1.410595906747858e-08]
+Softmax after adding 100 to every logit: [0.9999945163726807, 5.473800229083281e-06, 5.642383626991432e-08]
+Three-class checks (accuracy, sum-to-one, p-y gradient, shift invariance): PASS

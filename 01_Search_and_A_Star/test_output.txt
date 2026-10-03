@@ -1,0 +1,12 @@
+test_alternative_paths_still_return_a_shortest_route (__main__.SearchAgentTests.test_alternative_paths_still_return_a_shortest_route) ... ok
+test_heuristics_are_nonnegative_and_zero_is_zero (__main__.SearchAgentTests.test_heuristics_are_nonnegative_and_zero_is_zero) ... ok
+test_inaccessible_goal_returns_no_solution (__main__.SearchAgentTests.test_inaccessible_goal_returns_no_solution) ... ok
+test_malformed_map_is_rejected (__main__.SearchAgentTests.test_malformed_map_is_rejected) ... ok
+test_original_map_astar_and_bfs_find_shortest_paths (__main__.SearchAgentTests.test_original_map_astar_and_bfs_find_shortest_paths) ... ok
+test_original_map_dimensions_and_markers (__main__.SearchAgentTests.test_original_map_dimensions_and_markers) ... ok
+test_trivial_adjacent_goal_is_one_move (__main__.SearchAgentTests.test_trivial_adjacent_goal_is_one_move) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+OK

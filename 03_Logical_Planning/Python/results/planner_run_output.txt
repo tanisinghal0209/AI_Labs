@@ -1,0 +1,20 @@
+
+Initial State:
+['At(Package,A)', 'At(Robot,A)']
+
+Plan:
+
+Step 1: PickUp(Package,A)
+State: ['At(Robot,A)', 'Holding(Package)']
+
+Step 2: Move(A,B)
+State: ['At(Robot,B)', 'Holding(Package)']
+
+Step 3: Move(B,C)
+State: ['At(Robot,C)', 'Holding(Package)']
+
+Step 4: Drop(Package,C)
+State: ['At(Package,C)', 'At(Robot,C)']
+
+Final State:
+['At(Package,C)', 'At(Robot,C)']
